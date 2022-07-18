@@ -1,24 +1,10 @@
-# README
+# Friend List App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hello, my name is Khanh.
 
-Things you may want to cover:
+This is my ruby on rails "Friend List"
 
-* Ruby version
+Date 18/7/2022.
+I am available.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Have a good day.
