@@ -1,0 +1,17 @@
+
+<%= render @friend %>
+
+<div>
+  <%= link_to "Edit this friend", edit_friend_path(@friend) %> |
+  <%= link_to "Back to friends", friends_path %> | 
+
+  <%# <%= button_to "Destroy this friend", @friend, method: :delete %>
+  <%= link_to "Destroy this friend", @friend, 
+      data: {
+        turbo_method: :delete,
+        turbo_confirm: "#{ user_signed_in? ? 'Are you sure ?' : 'login first' }"
+      }
+  %> 
+
+
+</div>

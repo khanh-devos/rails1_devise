@@ -1,0 +1,39 @@
+.header {
+    font-weight: bold;
+    font-size: 20px;
+    width: 98%;
+    background-color: skyblue;
+    padding: 3px 10px;
+    
+    .root, .friend {
+        color: red;
+    }
+    .about, .newFriend {
+        color: blue;
+    }
+    .devise {
+        display: inline-flex;
+        * {
+            padding-left: 15px;
+
+        }
+    }
+    .devise:nth-child(even) {
+        color: red;
+    }
+
+}
+
+.friendIndex {
+    display: flex;
+    flex-direction: row;
+    .friendItem {
+        padding-left: 10px;
+    }
+}
+
+
+.yieldpage {
+    padding: 0px 20px;
+
+}
