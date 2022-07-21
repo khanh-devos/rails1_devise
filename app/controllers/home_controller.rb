@@ -12,7 +12,7 @@ class HomeController < ApplicationController
   end
 
   def about
-    @user = user_signed_in? ? current_user : "Pls login first"
+    @user = current_user
   end
   
   def userfriend
