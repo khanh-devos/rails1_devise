@@ -5,11 +5,13 @@ class FriendsController < ApplicationController
 
   before_action :correct_user, only: [ :edit, :update, :destroy]
 
+  #http_basic_authenticate_with name: "test", password: "secret", only: :destroy
 
   # GET /friends or /friends.json
   def index
     @friends = Friend.all
     #@friends = current_user.friends.all
+    
   end
 
   # GET /friends/1 or /friends/1.json
@@ -21,6 +23,7 @@ class FriendsController < ApplicationController
   def new
     #@friend = Friend.new
     @friend = current_user.friends.build
+    # p current_user.friends.methods
   end
 
   # GET /friends/1/edit
@@ -30,7 +33,7 @@ class FriendsController < ApplicationController
   # POST /friends or /friends.json
   def create
     #@friend = Friend.new(friend_params)
-    @friend = current_user.friends.update(friend_params)
+    @friend = current_user.friends.build(friend_params)
 
     respond_to do |format|
       if @friend.save
@@ -46,12 +49,15 @@ class FriendsController < ApplicationController
   # PATCH/PUT /friends/1 or /friends/1.json
   def update
     respond_to do |format|
+
       if @friend.update(friend_params)
         format.html { redirect_to friend_url(@friend), notice: "#{friend_params[:first_name]} was successfully updated." }
         format.json { render :show, status: :ok, location: @friend }
+        
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @friend.errors, status: :unprocessable_entity }
+
       end
     end
   end
@@ -90,6 +96,7 @@ class FriendsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def friend_params
-      params.require(:friend).permit(:first_name, :last_name, :email, :phone, :user_id)
+      params.require(:friend).permit(:first_name, :last_name, 
+                                    :email, :phone, :user_id, :status, :check, :avatar)
     end
 end

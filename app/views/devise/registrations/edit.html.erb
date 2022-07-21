@@ -1,8 +1,15 @@
+<div class="userEditForm formContainer">
+
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), 
     html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -12,6 +19,13 @@
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
+
+  <div class="field">
+    <%= f.label :avatar %> 
+    <%= f.file_field :avatar, id: "userAvatarID" %> 
+    <img id="previewUserAvatar" src="#" alt="your image" width=50 style="display: none"/>
+  </div>
+
 
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
@@ -45,3 +59,17 @@
 
   <%= link_to "Back", :back %>
 </p>
+
+</div>
+
+<script>
+  imgInp = document.getElementById("userAvatarID");
+  
+  imgInp.onchange = evt => {
+  const [file] = imgInp.files
+  if (file) {
+    previewUserAvatar.style.display = "block";
+    previewUserAvatar.src = URL.createObjectURL(file);
+  }
+}
+</script>

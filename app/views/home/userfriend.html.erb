@@ -1,0 +1,54 @@
+<h3>
+    List friends of user : <%= current_user.email %>
+</h3>
+
+<select id="choice" value="all">
+    <option value="all">show all</option>
+    <option value="archived">show archived</option>
+    <option value="public">show public</option>
+    <option value="private">show private</option>
+</select>
+<br><br>
+
+<% @userfriends.each do |friend| %>
+    <div class="<%= "status " + friend.status %>" >
+        <strong>Full name : </strong>
+        <%= friend.first_name + " " + friend.last_name %>
+        
+        <strong>Status : </strong>
+        <%= friend.status %> 
+        
+        <br>
+        <% if friend.avatar.attached? %> 
+            <strong>Avatar : </strong>
+            <%= image_tag friend.avatar, width: 50 %>
+            <br>
+        <% end %>
+        
+        <%= link_to "Modify status concern here", edit_friend_path(friend) %>
+        
+    </div><br>
+<% end %>
+
+<script>
+    choice = document.getElementById("choice");
+    
+    choice.onchange = function() {
+        statuses = ["status public", "status private","status archived"]
+        
+        friends = document.getElementsByClassName("status");
+        Object.values(friends).map(e => e.style.display = 'none');
+        
+        statuses.map(item => {    
+            if (choice.value === "all"){
+                Object.values(friends).map(e => e.style.display = 'block');
+            }
+            else if (item.includes(choice.value)){
+                friends = document.getElementsByClassName(item)
+                Object.values(friends).map(e => e.style.display = 'block');
+            }
+            
+            
+        })
+    }    
+</script>

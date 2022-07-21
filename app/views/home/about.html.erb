@@ -1,4 +1,23 @@
 <h1>About me</h1>
+
+<% if user_signed_in? %>
 <p> 
-    <%= @user %>
+    <strong>Username : </strong>
+    <%= @user.username %>
 </p>
+
+<p> 
+    <strong>Email : </strong>
+    <%= @user.email %>
+</p>
+
+<p> 
+    <% if @user.avatar.attached? %>
+    <strong>Avatar</strong>
+    <%= image_tag @user.avatar, width:100 %>
+    <% end %>
+
+</p>
+<% else %>
+    Please login first
+<% end %>

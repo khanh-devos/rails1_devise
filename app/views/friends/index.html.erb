@@ -1,20 +1,23 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Friends</h1>
-
+<div class="indexFriend">
+<h2>Friends List </h2>
+<h2><%= link_to "Add New friend", new_friend_path, class: "addNewFriend" %></h2>
+</div>
 
 
   <div id="friends" class="friendIndex">
     <% @friends.each do |e| %>
       
-      <div class="friendItem">
+      <% unless e.archived? %>
 
-      <%= render e %>
-      <%= link_to "Show this friend", e %>
-      
-      </div>
+        <div class="friendItem">
+        <%= render e %>
+        <%= link_to "Show this friend", e %>
+        </div>
+      <% end %>
+
     <% end %>
 
   </div>
   <br>
-<%= link_to "New friend", new_friend_path %>

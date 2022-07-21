@@ -1,6 +1,6 @@
 <div id="<%= dom_id friend %>" class="friendList">
   <p>
-    <strong>TEST name:</strong>
+    <strong>Name:</strong>
     <%= link_to friend.first_name << "  " << friend.last_name, friend, 
         style: "text-decoration: none" %>
   </p>
@@ -18,6 +18,11 @@
   <p>
     <strong>Owner_ID:</strong>
     <%=  /\w+\@/.match User.find( friend.user_id ).email %>
+  </p>
+
+  <p>
+    <strong>status:</strong>
+    <%=  friend.status %>
   </p>
 
 </div>
