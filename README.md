@@ -9,6 +9,7 @@ techiue usage:
 
 - devise: user
 - model Friend, associated with model User
+- connect to Postgresql
 - custom Validation, concern(status), acceptance
 - Active Storage: avatar
 - responsive layout
