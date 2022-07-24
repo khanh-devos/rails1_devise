@@ -1,23 +1,25 @@
+<div class="About">
 <h1>About me</h1>
-
-<% if user_signed_in? %>
 <p> 
-    <strong>Username : </strong>
-    <%= @user.username %>
-</p>
+    <% if @user %>
+    Welcome <%= @user.email %> 
+    
 
-<p> 
-    <strong>Email : </strong>
-    <%= @user.email %>
-</p>
-
-<p> 
     <% if @user.avatar.attached? %>
-    <strong>Avatar</strong>
-    <%= image_tag @user.avatar, width:100 %>
+        <%= image_tag @user.avatar, width:100 %>
     <% end %>
 
+    <% else %>
+        Please login first
+    <% end %>
+    
 </p>
-<% else %>
-    Please login first
-<% end %>
+
+</div>
+<p> Full name: Than Trong Khanh </p>
+<p> Career: a ruby developer </p>
+<p> Other langauges: ReactJS and litle Python</p>
+<p> Currently I am looking for a part-time or long-time job</p>
+<p> Welcome to see my Git</p>
+
+    

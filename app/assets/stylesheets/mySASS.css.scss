@@ -53,6 +53,7 @@ body {
 
 .yieldpage{
     width: 100%;
+    min-height: 400px;
 
     .formContainer {
         width: 500px;
@@ -64,6 +65,13 @@ body {
     margin: auto;
 }
 
+
+.About {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .friendIndex {
     display: grid;

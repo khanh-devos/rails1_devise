@@ -8,6 +8,8 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <script src="<%= asset_path '1.js' %>" ></script>
   </head>
 
   <body>
@@ -17,7 +19,7 @@
     <%= yield %>
   </div>
 
-  Partial: footer <br>
+  <%= render "home/footer" %><br>
   
   </body>
 </html>

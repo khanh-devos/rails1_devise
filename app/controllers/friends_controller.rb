@@ -11,7 +11,7 @@ class FriendsController < ApplicationController
   def index
     @friends = Friend.all
     #@friends = current_user.friends.all
-    
+
   end
 
   # GET /friends/1 or /friends/1.json
@@ -44,6 +44,8 @@ class FriendsController < ApplicationController
         format.json { render json: @friend.errors, status: :unprocessable_entity }
       end
     end
+
+
   end
 
   # PATCH/PUT /friends/1 or /friends/1.json
