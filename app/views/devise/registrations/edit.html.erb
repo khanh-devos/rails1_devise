@@ -22,10 +22,16 @@
 
   <div class="field">
     <%= f.label :avatar %> 
-    <%= f.file_field :avatar, id: "userAvatarID" %> 
-    <img id="previewUserAvatar" src="#" alt="your image" width=50 style="display: none"/>
-  </div>
+    <%= f.file_field :avatar, id: "editUserAvatarID" %> 
+    
+    <br>
+    <% if resource.avatar.attached? %>
+      <%= image_tag resource.avatar, width: 50, id: "editCurrentUserAvatarID" %>
+    <% end %>
 
+    <img id="editPreviewUserAvatar" src="#" width=50 style="display: none"/>
+  </div>
+  
 
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
@@ -63,13 +69,16 @@
 </div>
 
 <script>
-  imgInp = document.getElementById("userAvatarID");
-  
+  imgInp = document.getElementById("editUserAvatarID");
+  editPreviewUserAvatar.style.display = "none";
+
   imgInp.onchange = evt => {
   const [file] = imgInp.files
   if (file) {
-    previewUserAvatar.style.display = "block";
-    previewUserAvatar.src = URL.createObjectURL(file);
+    editPreviewUserAvatar.style.display = "block";
+    editCurrentUserAvatarID.style.display = "none";
+
+    editPreviewUserAvatar.src = URL.createObjectURL(file);
   }
 }
 </script>

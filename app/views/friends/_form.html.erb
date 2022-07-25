@@ -58,7 +58,7 @@
     <%= form.file_field :avatar, id: "friendAvatarID" %> <br>
 
     <% if friend.avatar.attached? %>
-      <%= image_tag friend.avatar, width: 50 %>
+      <%= image_tag friend.avatar, width: 50, id: "currentfriendAvatarID" %>
     <% end %>
 
       <img id="previewFriendAvatarID", width=50 />
@@ -81,6 +81,8 @@
   const [file] = imgInp.files
   if (file) {
     show.style.display = "block";
+    currentfriendAvatarID.style.display = "none";
+
     show.src = URL.createObjectURL(file);
   }
 }

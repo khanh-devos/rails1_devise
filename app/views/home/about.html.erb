@@ -1,19 +1,19 @@
 <div class="About">
 <h1>About me</h1>
-<p> 
+<div class="welcomeClass"> 
     <% if @user %>
-    Welcome <%= @user.email %> 
-    
-
-    <% if @user.avatar.attached? %>
-        <%= image_tag @user.avatar, width:100 %>
-    <% end %>
+        <i>Welcome</i>
+        <% if @user.avatar.attached? %>
+            <%= image_tag @user.avatar, width:50, class: "aboutImg" %>
+        <% else %>
+            <%= @user.email %> 
+        <% end %>
 
     <% else %>
         Please login first
     <% end %>
     
-</p>
+</div>
 
 </div>
 <p> Full name: Than Trong Khanh </p>

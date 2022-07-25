@@ -63,6 +63,20 @@ body {
 .noticeAlert {
     width: 500px;
     margin: auto;
+    text-align: center;
+    * {
+        padding: 10px 15px;
+        border: 1px solid green;
+        background-color:greenyellow;
+        border-radius: 5px;
+    }
+    .notice {
+        outline: 1px solid black;
+    }
+    .alert {
+        outline: 1px solid red;
+    }
+    
 }
 
 
@@ -71,6 +85,18 @@ body {
     grid-template-columns: auto auto;
     justify-content: space-between;
     align-items: center;
+
+    .welcomeClass{
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: right;
+        align-items: center;
+
+        .aboutImg {
+            border-radius: 47%;
+            padding: 0px 5px;
+        }
+    }
 }
 
 .friendIndex {
