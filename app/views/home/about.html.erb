@@ -2,7 +2,7 @@
 <h1>About me</h1>
 <div class="welcomeClass"> 
     <% if @user %>
-        <i>Welcome</i>
+        <i style="padding-right: 7px">Welcome </i>
         <% if @user.avatar.attached? %>
             <%= image_tag @user.avatar, width:50, class: "aboutImg" %>
         <% else %>

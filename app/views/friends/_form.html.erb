@@ -55,13 +55,13 @@
 
   <div>
     <%= form.label :avatar %> 
-    <%= form.file_field :avatar, id: "friendAvatarID" %> <br>
+    <%= form.file_field :avatar, id: "_formfriendAvatarID" %> <br>
 
     <% if friend.avatar.attached? %>
-      <%= image_tag friend.avatar, width: 50, id: "currentfriendAvatarID" %>
+      <%= image_tag friend.avatar, width: 50, id: "_formcurrentfriendAvatarID" %>
     <% end %>
 
-      <img id="previewFriendAvatarID", width=50 />
+      <img id="_formpreviewFriendAvatarID" src="#" width=50 style="display: none" />
 
     
   </div>
@@ -73,17 +73,18 @@
 <% end %>
 
 <script>
-  imgInp = document.getElementById("friendAvatarID");
-  show = document.getElementById("previewFriendAvatarID");
-  show.style.display = 'none';
+  imgInp = document.getElementById("_formfriendAvatarID");
+  show = document.getElementById("_formpreviewFriendAvatarID");
   
   imgInp.onchange = evt => {
-  const [file] = imgInp.files
-  if (file) {
-    show.style.display = "block";
-    currentfriendAvatarID.style.display = "none";
+    const [file] = imgInp.files
 
-    show.src = URL.createObjectURL(file);
+    if (file) {
+      show.style.display = "block";
+      show.src = URL.createObjectURL(file);
+
+      _formcurrentfriendAvatarID.style.display = "none";
+
+    }
   }
-}
 </script>
