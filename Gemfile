@@ -14,6 +14,7 @@ gem "sprockets-rails"
 
 # for postgresql
 gem "pg"
+gem 'rails_12factor', group: :production
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
