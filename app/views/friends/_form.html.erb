@@ -58,8 +58,11 @@
     <%= form.file_field :avatar, id: "friendAvatarID" %> <br>
 
     <% if friend.avatar.attached? %>
-      <%= image_tag friend.avatar, id: "previewFriendAvatarID", width: 50 %>
+      <%= image_tag friend.avatar, width: 50 %>
     <% end %>
+
+      <img id="previewFriendAvatarID", width=50 />
+
     
   </div>
 
@@ -71,12 +74,14 @@
 
 <script>
   imgInp = document.getElementById("friendAvatarID");
+  show = document.getElementById("previewFriendAvatarID");
+  show.style.display = 'none';
   
   imgInp.onchange = evt => {
   const [file] = imgInp.files
   if (file) {
-    previewFriendAvatarID.style.display = "block";
-    previewFriendAvatarID.src = URL.createObjectURL(file);
+    show.style.display = "block";
+    show.src = URL.createObjectURL(file);
   }
 }
 </script>

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Users::PasswordsController < Devise::PasswordsController
-  after_action :new, :show_notice 
   
   # GET /resource/password/new
   def new
