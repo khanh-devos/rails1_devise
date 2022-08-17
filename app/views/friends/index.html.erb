@@ -8,17 +8,32 @@
 
 
   <div id="friends" class="friendIndex">
+
+<%# <script>     %>
+    <%= render partial: 'friend', collection: @friends, cached: true %>
+<%# </script> %>
+
+
+<script>
     <% @friends.each do |e| %>
       
       <% unless e.archived? %>
 
         <div class="friendItem">
-        <%= render e %>
-        <%= link_to "Show this friend", e %>
+
+            <%= render e %>
+        
+          <%= link_to "Show this friend", e %>
         </div>
+
       <% end %>
 
     <% end %>
 
-  </div>
-  <br>
+</script>
+
+
+</div>
+<br>
+
+

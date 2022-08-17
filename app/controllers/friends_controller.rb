@@ -37,8 +37,11 @@ class FriendsController < ApplicationController
 
     respond_to do |format|
       if @friend.save
-        format.html { redirect_to friend_url(@friend), notice: "#{@friend.first_name} was successfully created." }
+        format.html { redirect_to friend_url(@friend), 
+                      notice: "#{@friend.first_name} was successfully created." }
+
         format.json { render :show, status: :created, location: @friend }
+        
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @friend.errors, status: :unprocessable_entity }
@@ -96,7 +99,7 @@ class FriendsController < ApplicationController
       end
     end
 
-    # Only allow a list of trusted parameters through.
+    # Only allow a list of trusted parameters (form) through. != params (from url)
     def friend_params
       params.require(:friend).permit(:first_name, :last_name, 
                                     :email, :phone, :user_id, :status, :check, :avatar)

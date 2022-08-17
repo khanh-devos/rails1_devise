@@ -12,11 +12,9 @@ end
 class Friend < ApplicationRecord
     include Visible         #for concerns
 
-        belongs_to :user
+    belongs_to :user
 
-    has_one_attached :avatar do |attachable|
-        attachable.variant :thumb, resize_to_limit: [100, 100]
-    end
+    has_one_attached :avatar
 
     validates :first_name, presence: true, length: { minimum: 2 }
     
@@ -24,6 +22,7 @@ class Friend < ApplicationRecord
     
     validates :check, acceptance: true      #only accept true
 
+    
     after_create :action_after_create, :rezise_after_create
     
     private

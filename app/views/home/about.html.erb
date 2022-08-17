@@ -1,12 +1,12 @@
 <div class="About">
 <h1>About me</h1>
 <div class="welcomeClass"> 
-    <% if @user %>
+    <% if @user123 %>
         <i style="padding-right: 7px">Welcome </i>
-        <% if @user.avatar.attached? %>
-            <%= image_tag @user.avatar, width:50, class: "aboutImg" %>
+        <% if @user123.avatar.attached? %>
+            <%= image_tag @user123.avatar, width:50, class: "aboutImg" %>
         <% else %>
-            <%= @user.email %> 
+            <%= @user123.email %> 
         <% end %>
 
     <% else %>
@@ -19,7 +19,6 @@
 <p> Full name: Than Trong Khanh </p>
 <p> Career: a ruby developer </p>
 <p> Other langauges: ReactJS and litle Python</p>
-<p> Currently I am looking for a part-time or long-time job</p>
 <p> Welcome to see my Git</p>
 
     

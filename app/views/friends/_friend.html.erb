@@ -1,28 +1,37 @@
 <div id="<%= dom_id friend %>" class="friendList">
-  <p>
-    <strong>Name:</strong>
-    <%= link_to friend.first_name << "  " << friend.last_name, friend, 
-        style: "text-decoration: none" %>
-  </p>
+  <div class="friendItem">
+    <p>
+      <strong>Name:</strong>
+      <%= link_to friend.first_name << "  " << friend.last_name, friend, 
+          style: "text-decoration: none" %>
+    </p>
 
-  <p>
-    <strong>Email:</strong>
-    <%= friend.email %>
-  </p>
+    <p>
+      <strong>Email:</strong>
+      <%= friend.email %>
+    </p>
 
-  <p>
-    <strong>Phone:</strong>
-    <%= friend.phone %>
-  </p>
+    <p>
+      <strong>Phone:</strong>
+      <%= friend.phone %>
+    </p>
 
-  <p>
-    <strong>Owner_ID:</strong>
-    <%=  /\w+\@/.match User.find( friend.user_id ).email %>
-  </p>
+    <p>
+      <strong>Owner_ID:</strong>
+      <%=  /\w+\@/.match User.find( friend.user_id ).email %>
+    </p>
 
-  <p>
-    <strong>status:</strong>
-    <%=  friend.status %>
-  </p>
+    <p>
+      <strong>status:</strong>
+      <%=  friend.status %>
+    </p>
 
+    <p>
+      <% if friend.avatar.attached? %>
+        <%= image_tag friend.avatar, width: 50, height:50 %>
+      <% end %>
+    </p>
+
+    <%= link_to "Show this friend", friend %>
+  </div>
 </div>

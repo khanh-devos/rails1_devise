@@ -38,6 +38,6 @@ class Users::PasswordsController < Devise::PasswordsController
   end
 
   def show_notice
-    puts "+++++++++++++++++++++++++"
+    
   end
 end

@@ -4,6 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
 
+
   # GET /resource/sign_up
   def new
     super
@@ -26,6 +27,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # DELETE /resource
   def destroy
+    unauthenticate_user(current_user[:id]) 
+
     super
   end
 
@@ -38,7 +41,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
-  # protected
+  private
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
@@ -59,16 +62,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # User sidekiq/redis to send email while resetting password
     begin 
       Job3Job.perform_later(resource)
+
+      #validate cable connection
+      authenticate_user(resource[:id])
     rescue =>err 
       p err 
     end
 
-    
     super(resource)
+
+    
+
+    
   end
 
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(resource)
     super(resource)
+
+
   end
 end

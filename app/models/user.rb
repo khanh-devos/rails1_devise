@@ -10,4 +10,12 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
+  def appear
+    return "true"
+  end
+
+  def away
+
+  end
+
 end

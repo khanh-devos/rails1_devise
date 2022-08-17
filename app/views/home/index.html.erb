@@ -5,19 +5,34 @@
 route "User_friends" or "All friends"</p>
 
 
-<table class="homeIndex">
+<table class="homeIndex" id="userTableID">
     <tr>
     <th>Username</th>
     <th>Email</th>
+    <th>Appearance</th>
+    <th></th>
     </tr>
-    
-<% @users.each do |e| %>
+
+<% @users.sort_by{|u| u.id }.each.with_index do |e, i| %>
 
     <tr>
         <td><%= e.username %></td>
         <td><%= e.email %></td>
+        
+        <td data_appearing_on='<%= @subs[i] %>' >
+            
+            <%= e.status %>
+            
+        </td>
+        
     </tr>
 
+    
 
 <% end %>
 </table>
+
+<script>
+
+
+</script>

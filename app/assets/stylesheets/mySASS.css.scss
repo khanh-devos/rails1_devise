@@ -9,7 +9,16 @@ body::after {
     width: 98%;
 }
 body {
-    background-color: rgb(237, 243, 244);
+    background-color: rgb(217, 233, 218);
+    // background-image: "url(<%= asset_path 'rails1.jpeg' %>)";
+    // image needs tail ".erb" to call
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+    background-blend-mode: overlay;
+    backdrop-filter: grayscale(70%);
+
+    
 }
 
 .headerTotal {
@@ -109,6 +118,8 @@ body {
         padding: 5px 10px;
         border: 1px solid green;
         background-color: rgb(229, 255, 229);
+
+        height: 350px;
     }
     strong {
         font-style: italic;

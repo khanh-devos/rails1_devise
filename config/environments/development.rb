@@ -68,6 +68,9 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
+  # Set Action Cable server url for consumer connection
+  # config.action_cable.url = 'ws://localhost:3000'
+
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000}
   
@@ -85,10 +88,12 @@ Rails.application.configure do
   }
 
   #Redis configuration for development stage
-  Rails.application.configure do
-    config.cache_store = :redis_cache_store, { url: "redis://localhost:6379/0" }
-  end
+  # Rails.application.configure do
+  #   config.cache_store = :redis_cache_store, { url: "redis://localhost:6379/0" }
+  # end
 
-
+  # Set Action Cable server url for consumer connection
+  # config.action_cable.url = 'ws://localhost:28080'
+  # config.action_cable.worker_pool_size = 4
   
 end
