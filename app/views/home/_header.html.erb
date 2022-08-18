@@ -2,12 +2,18 @@
 <div class="headerTotal" >
     <div class="header P1">
     <%= link_to "Home", root_path, class:"root header_link" %>
-    <%= link_to "About", home_about_path, class:"about header_link" %>
+    <%= link_to "About Me", home_about_path, class:"about header_link" %>
     <%= link_to "All Friends", friends_path, class:"friend header_link" %>
     <%= link_to "User Friends", userfriends_path, class:"userFriend header_link" %>
     <%= link_to "NewFriend", new_friend_path, class:"newFriend header_link" %>
     </div>
 
+    <div class="header P3">
+        <% if user_signed_in? %>
+            Welcome : <%= current_user.email.scan(/[\w]*\@/)[0] %> !
+        <% end %>
+    </div>
+    
     <div class="header P2">
     <%# For devise_routes %> 
     <%= link_to "Sign Up", new_user_registration_path, class:"signUp header_link" %>
@@ -17,6 +23,8 @@
     <%= link_to "Edit Profile", edit_user_registration_path, class:"editProfile header_link" %>
     </div>
 </div>
+
+
 
 
 <div class="noticeAlert">
